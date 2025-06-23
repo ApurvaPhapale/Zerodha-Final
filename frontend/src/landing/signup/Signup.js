@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import servers from "../../environment"; // ✅ For Signup.js (2 levels up)
+
+
 import "./Signup.css";
 
 const Signup = () => {
@@ -30,11 +33,11 @@ const Signup = () => {
         return;
       }
 
-      // Send signup data to backend
-      const res = await axios.post("http://localhost:3002/signup", {
+      // ✅ Send signup data to live backend
+      const res = await axios.post(`${servers.prod}/signup`, {
         email,
         password,
-        // you can send name too, but backend must support it
+        // You can also send name if your backend accepts it
       });
 
       if (res.data.success) {

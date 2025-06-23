@@ -1,4 +1,3 @@
-// model/UserModel.js
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
@@ -13,5 +12,7 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-const UserModel = mongoose.model("User", userSchema);
+// 👇 Explicitly use 'users' collection
+const UserModel = mongoose.model("user", userSchema, "users");
+
 module.exports = { UserModel };

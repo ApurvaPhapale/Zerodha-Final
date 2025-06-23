@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import servers from "../environment"; // ✅ For Login.js (1 level up)
+
+
 import "./Login.css";
 
 const Login = () => {
@@ -12,18 +15,18 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:3002/login", {
+      const res = await axios.post(`${servers.prod}/login`, {
         email,
         password,
       });
 
       if (res.data.success) {
-        // Optionally save token if backend gives it
+        // Optional: store token if backend returns it
         // localStorage.setItem("token", res.data.token);
         alert("Login successful");
         navigate("/dashboard");
       } else {
-        alert("Invalid credentials");
+        alert(res.data.message || "Invalid credentials");
       }
     } catch (error) {
       console.error("Login error:", error);

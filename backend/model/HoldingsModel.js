@@ -1,7 +1,7 @@
-const {model} =require ("mongoose");
+const { model } = require("mongoose");
+const { HoldingsSchema } = require("../schemas/HoldingsSchema");
 
-const {HoldingsSchema}=require('../schemas/HoldingsSchema');
+// explicitly tell mongoose the collection name is 'holdings'
+const HoldingsModel = new model("holding", HoldingsSchema, "holdings");
 
-const HoldingsModel=new model("holding",HoldingsSchema);
-
-module.exports={HoldingsModel};
+module.exports = { HoldingsModel };

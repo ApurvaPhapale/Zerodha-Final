@@ -1,6 +1,6 @@
 const {Schema} =require ("mongoose");
 
-const PositionsSchema=new Schema({
+const PositionsSchemas=new Schema({
     product:String,
     name: String,
     qty: Number,
@@ -11,4 +11,4 @@ const PositionsSchema=new Schema({
     isLoss:Boolean,
 });
 
-module.exports={PositionsSchema};
+module.exports={PositionsSchemas};
