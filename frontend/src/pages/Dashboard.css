@@ -1,0 +1,18 @@
+.dashboard-container {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.dashboard-container h1 {
+  color: #333;
+}
+
+.dashboard-container button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: crimson;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
